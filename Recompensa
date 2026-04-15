@@ -1,0 +1,45 @@
+import java.util.Random;
+import java.util.ArrayList;
+
+public class Recompensa {
+    // la clase debe recibir el atributo rachaActual, de la clase de nathalia
+    private String descripcionPremio;
+    private ArrayList<String> opcionesPremios;
+
+    public Recompensa() {
+        this.opcionesPremios = new ArrayList<>();
+
+        this.opcionesPremios.add("El integrante menor elige qué se pide de domicilio el fin de semana.");
+        this.opcionesPremios.add("La/el lider, tiene el mando del TV por 2 horas sin protestas.");
+        this.opcionesPremios.add("El que tenga más de 2 vocales en su nombre, pone su playlist en la cena o el aseo.");
+        this.opcionesPremios.add("Al que mejor le fue en la semana, se salta tender la cama o limpiar la mesa por hoy.");
+        this.opcionesPremios.add("(Aquí pueden escoger cualquier integrante) Vale por un 'perdón' ante un olvido o error.");
+        this.opcionesPremios.add("Alguien de la familia le lleva el desayuno el domingo al mayor de la casa.");
+        this.opcionesPremios.add("Un integrante al azar debe traer un dulce favorito de la tienda para toda la familia.");
+    }
+
+    public void requisitoRecompensa(int rachaActual) {
+        // tuenen que cumplir 7 rachas para desbloquear una recompensa
+        if (rachaActual >= 7) {
+            generarPremioAzar();
+            mostrarPremio();
+        } else {
+            int numeroRachaFaltante = 7 - rachaActual;
+            System.out.println("Sigan así, faltan " + numeroRachaFaltante + " días/semanas de racha para el premio familiar.");
+        }
+    }
+
+    private void generarPremioAzar() {
+        Random dado = new Random();
+        //nextInt usa el tamaño de la lista para no pasasrse
+        int indice = dado.nextInt(opcionesPremios.size());//size para que no se pase de lo que dberia
+        this.descripcionPremio = opcionesPremios.get(indice);
+    }
+
+    public void mostrarPremio() {
+        System.out.println("==========================================");
+        System.out.println("          RECOMPENSA DESBLOQUEADA         ");
+        System.out.println("   Beneficio: " + this.descripcionPremio);
+        System.out.println("==========================================");
+    }
+}
