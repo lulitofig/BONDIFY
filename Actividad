@@ -1,0 +1,61 @@
+public class Actividad { //clase padre
+    private int idActividad;
+    private String nombreActividad;
+    private String descripcionActividad;
+    private int numeroIntegrantes;
+    private boolean comprobante; //se realizó o no se realizó
+
+    public Actividad(int idActividad, String nombreActividad, String descripcionActividad, int numeroIntegrantes, boolean comprobante){
+        this.idActividad = idActividad;
+        this.nombreActividad = nombreActividad;
+        this.descripcionActividad = descripcionActividad;
+        this.numeroIntegrantes = numeroIntegrantes;
+        this.comprobante = false;
+    }
+    public int getidActividad() {
+        return idActividad;
+    }
+    public String getNombreActividad(){
+        return nombreActividad;
+    }
+    public String getDescripcionActividad(){
+        return descripcionActividad;
+    }
+    public int getNumeroIntegrantes(){
+        return numeroIntegrantes;
+    }
+    public boolean getComprobante(){
+        return comprobante;
+    }
+    //no se hacen los otros setters, porque la única información que puede manipular el usuario es para confirmar si realizaron o no la actividad, lo otro NO LO PUEDEN EDITAR
+    public void setComprobante(boolean comprobante) {
+        this.comprobante = comprobante;
+    }//el cormprobante es un botón
+
+    //métodos
+    public void terminarActividad() {
+        this.comprobante = true;
+        System.out.println("Actividad realizada.");
+    }
+    public String estadoActividad() {
+        if (this.comprobante == true) {
+            return "Actividad realizada";
+        } else {
+            return "Pendiente por hacer";
+        }
+    }
+    public void mostrarTInformacion() {
+        System.out.println("Actividad: " + this.nombreActividad);
+        System.out.println("Descripción: " + this.descripcionActividad);
+        System.out.println("Personas necesarias: " + this.numeroIntegrantes);
+        System.out.println("Estado actual: " + estadoActividad());
+    }
+    public void verificarPersonasPorActividad(int personasDisponibles) {//saber si cumplen con las personas para hacer la actividad o no
+        if (personasDisponibles >= this.numeroIntegrantes) {
+            System.out.println("Perfecto, estan completos, pueden empezar");
+        } else {
+            int faltan = this.numeroIntegrantes - personasDisponibles;
+            System.out.println("Faltan " + faltan + " personas.");
+        }
+    }
+}
