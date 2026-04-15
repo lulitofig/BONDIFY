@@ -1,0 +1,37 @@
+import java.time.LocalDate;
+
+    public class PublicacionGratitud {
+        private int idPublicacion;
+        private String mensaje;
+        private LocalDate fechaPublicacion;
+        private String autor; // Nombre del miembro de la familia
+
+        public PublicacionGratitud(int idPublicacion, String mensaje, String autor) {
+            this.idPublicacion = idPublicacion;
+            this.mensaje = mensaje;
+            this.autor = autor;
+            this.fechaPublicacion = LocalDate.now(); // para poner la fecha automatica
+        }
+
+        public int getIdPublicacion() {
+            return idPublicacion; }
+
+        public String getMensaje() {
+            return mensaje; }
+
+        public LocalDate getFechaPublicacion() {
+            return fechaPublicacion; }
+
+        public String getAutor() {
+            return autor; }
+
+        //metodos
+
+        public void mostrarMensajeGratitud() {
+            System.out.println("***************** NUEVO MENSAJE DE BONDIFY *****************");
+            System.out.println("* "+ this.mensaje  +                                      "*");
+            System.out.println("* Fecha de envio: " + this.fechaPublicacion  +            "*");
+            System.out.println("************************************************************");
+        }
+    }
+
