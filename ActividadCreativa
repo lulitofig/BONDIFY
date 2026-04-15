@@ -1,0 +1,15 @@
+public class ActividadCreativa extends Actividad{
+
+    private String tipoArte;
+    private String materiales;
+
+    public ActividadCreativa(int idActividad, String nombreActividad, String descripcionActividad, int numeroIntegrantes, boolean comprobante,String tipoArte, String materiales) {
+
+        //super envia los datos a la clase Actividad para que se guarden
+        super(idActividad, nombreActividad, descripcionActividad, numeroIntegrantes, comprobante);
+
+        this.tipoArte = tipoArte;
+        this.materiales = materiales;
+
+    }
+}
