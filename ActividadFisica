@@ -1,0 +1,11 @@
+public class ActividadFisica extends Actividad {
+
+    private String intensidad;
+
+    public ActividadFisica(int idActividad, String nombreActividad, String descripcionActividad, int numeroIntegrantes, boolean comprobante, String intensidad) {
+
+        //super envia los datos a la clase Actividad para que se guarden
+        super(idActividad, nombreActividad, descripcionActividad, numeroIntegrantes, comprobante);
+        this.intensidad = intensidad;
+    }
+}
