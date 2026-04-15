@@ -1,0 +1,12 @@
+public class ActividadSocial extends Actividad {
+
+    private String lugarActividad;
+
+    public ActividadSocial(int idActividad, String nombreActividad, String descripcionActividad, int numeroIntegrantes, boolean comprobante, String lugarActividad) {
+
+        //super envia los datos a la clase Actividad para que se guarden
+        super(idActividad, nombreActividad, descripcionActividad, numeroIntegrantes, comprobante);
+
+        this.lugarActividad = lugarActividad;
+    }
+}
