@@ -1,0 +1,31 @@
+public class Avatar {
+    private int idAvatar;
+    private String genero;
+    private String descripcion;
+    private String urlImagenGenerada;
+
+    public Avatar(int idAvatar, String genero, String descripcion) {
+        this.idAvatar = idAvatar;
+        this.genero = genero;
+        this.descripcion = descripcion;
+        this.urlImagenGenerada = "Pendiente de generación...";
+    }
+    public String obtenerPromptIA() {
+        return "Instrucción Bondify: Generar avatar 3D, estilo minimalista, género " +
+                this.genero + ", basado en: " + this.descripcion;
+    }
+
+    // setter para guardar la imagen que nos devuelva el servicio
+    public void setUrlImagenGenerada(String url) {
+        this.urlImagenGenerada = url;
+    }
+
+    public void mostrarPerfil() {
+        System.out.println("\n----------- PERFIL DE AVATAR -----------");
+        System.out.println("ID Usuario: " + idAvatar);
+        System.out.println("Género: " + genero);
+        System.out.println("Descripción: " + descripcion);
+        System.out.println("URL Imagen (IA): " + urlImagenGenerada);
+        System.out.println("----------------------------------------");
+    }
+}
