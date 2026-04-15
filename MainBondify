@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class MainBondify {
+    public static void main(String[] args) {
+        ActividadEducativa actividadEducativa1 = new ActividadEducativa();
+        ActividadFisica actividadFisica1 = new ActividadFisica();
+        ActividadSocial actividadSocial1 = new ActividadSocial();
+        ActividadCreativa actividadCreativa1 = new ActividadCreativa();
+        Scanner sc = new Scanner(System.in);
+        int opcion = sc.nextInt();
+
+        //parte de actividad que deseen realizar
+        System.out.println("Holaaaa familia, al parecer hoy es día de unirnos, por favor, selecciona que tipo de actividad quieren realizar hoy:");
+        System.out.println("¡Recuerda que deben tener en cuenta la cantidad de personas, el espacio y el tiempo!");
+        System.out.println("¡A trabajar en equipo!");
+
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~      MÉNU ÚNICO PADRES     ~");
+        System.out.println("~                            ~");
+        System.out.println("~ 1. Actividad Educativa     ~");
+        System.out.println("~ 2. Actividad Física        ~");
+        System.out.println("~ 3. Actividad Social        ~");
+        System.out.println("~ 4. Actividad Creativa      ~");
+        System.out.println("~                            ~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
+        switch (opcion){
+            case 1:
+                actividadEducativa1.getNombreActividad();
+
+        }
+
+
+        // PARTE DE AVATAR CON IA
+        Scanner sc = new Scanner(System.in);
+        ServicioIA conectorIA = new ServicioIA();
+
+        System.out.println("=== REGISTRO DE AVATAR BONDIFY ===");
+
+        // 1. Pedir datos al usuario
+        System.out.print("Ingrese ID de Usuario: ");
+        int id = sc.nextInt();
+        sc.nextLine(); // Limpiar el buffer
+
+        System.out.print("Ingrese Género (M/F/Otro): ");
+        String genero = sc.nextLine();
+
+        System.out.print("Describa su apariencia (ej: Un oso con traje espacial): ");
+        String desc = sc.nextLine();
+
+        // 2. Crear el objeto Avatar
+        Avatar usuarioActual = new Avatar(id, genero, desc);
+
+        // 3. PROCESO DE CONEXIÓN CON IA
+        System.out.println("\nGenerando su identidad visual única...");
+
+        // Obtenemos el prompt del avatar
+        String promptTecnico = usuarioActual.obtenerPromptIA();
+
+        // Enviamos al servicio y recibimos la URL
+        String urlRecibida = conectorIA.conectarYGenerar(promptTecnico);
+
+        // Guardamos la imagen en el avatar (Solo se hace esta vez)
+        usuarioActual.setUrlImagenGenerada(urlRecibida);
+
+        // 4. Resultado final
+        System.out.println("\n¡Éxito! Su avatar ha sido vinculado permanentemente.");
+        usuarioActual.mostrarPerfil();
+
+        sc.close();
+    }
+}
