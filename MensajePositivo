@@ -1,0 +1,42 @@
+import java.time.LocalDate;
+
+public class MensajePositivo {
+    private int idMensaje;
+    private String contenidoMensaje;
+    private LocalDate fechaDelMensaje;
+    private String nombreRemitente;
+    private String nombreDestinatario;
+    public MensajePositivo(int idMensaje, String contenidoMensaje, LocalDate fechaDelMensaje, String nombreRemitente, String nombreDestinatario){
+        this.idMensaje = idMensaje;
+        this.contenidoMensaje = contenidoMensaje;
+        this.fechaDelMensaje = fechaDelMensaje;
+        this.nombreRemitente = nombreRemitente;
+        this.nombreDestinatario = nombreDestinatario;
+    }
+    public int getIdMensaje() {
+        return idMensaje;
+    }
+    public String getContenidoMensaje(){
+        return contenidoMensaje;
+    }
+    public LocalDate getFechaDelMensaje(){
+        return fechaDelMensaje;
+    }
+    public String getNombreRemitente(){
+        return nombreRemitente;
+    }
+    public String getNombreDestinatario(){
+        return nombreDestinatario;
+    }
+
+    //metodos
+
+    public void mostrarMensajePositivo() {
+        System.out.println("***************** NUEVO MENSAJE DE BONDIFY *****************");
+        System.out.println("* Para: " + this.nombreDestinatario  +                    "*");
+        System.out.println("* "+ this.contenidoMensaje  +                             "*");
+        System.out.println("* Atentamente: " + this.nombreRemitente  +                "*");
+        System.out.println("* Fecha de envio: " + this.fechaDelMensaje  +             "*");
+        System.out.println("************************************************************");
+    }
+}
