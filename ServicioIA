@@ -1,0 +1,19 @@
+import java.util.UUID;
+
+public class ServicioIA {
+
+    // Simulación de una petición a la API de generación de imágenes
+    public String conectarYGenerar(String promptRecibido) {
+        System.out.println("[SISTEMA] Conectando con el servidor de IA de Bondify...");
+        System.out.println("[SISTEMA] Procesando prompt: " + promptRecibido);
+
+        // Simulamos un pequeño retraso de red
+        try { Thread.sleep(1000); } catch (InterruptedException e) {}
+
+        // Generamos un ID único para la imagen simulando la respuesta del servidor
+        String idImagenAleatorio = UUID.randomUUID().toString().substring(0, 8);
+
+        // Retornamos la URL final que la IA "creó"
+        return "https://api.bondify.ai/v1/images/storage_" + idImagenAleatorio + ".png";
+    }
+}
